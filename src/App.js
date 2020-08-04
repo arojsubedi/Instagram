@@ -1,12 +1,15 @@
 import React from 'react';
-import Header from './Header.js';
-import Body from './Body.js';
+import NavBar from './NavBar.js';
+import Posts from './Posts.js';
 
 function App() {
   return (
     <React.Fragment>
-        <Header />
-        <Body />
+        <NavBar />
+        <Posts />
+        <Posts />
+        <Posts />
+        <Posts />
     </React.Fragment>
   );
 }
