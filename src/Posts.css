@@ -3,12 +3,17 @@
     background-color:rgba(var(--b3f,250,250,250),1);
     /* height:90vh; */
     /* padding: 20px; */
-    max-width: 500px;
-    border: 1px solid lightgray;
+    /* max-width: 500px;
+    border: 1px solid lightgray; */
+    padding-bottom: 30px;
 }
 
 .posts__section{
-    background-color: white;
+    max-width: 500px;
+    border: 1px solid lightgray;
+    /* margin-bottom: 30px; */
+    background-color: white !important;
+    
 }
 
 .section__avatar{
@@ -23,6 +28,7 @@
 
 .section__image{
     height: 50%;
+    max-height: 100%;
     width: 100%;
     object-fit: contain;
     
