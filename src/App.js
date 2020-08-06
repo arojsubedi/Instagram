@@ -28,7 +28,9 @@ function App() {
 
   useEffect(()=>{
     db.collection('posts').onSnapshot(snapshot=>{
-      setPosts(snapshot.docs.map(doc=>doc.data()));
+      setPosts(snapshot.docs.map(doc=>
+        ({id:doc.id,post:doc.data()})
+      ));
     })
   },[]);
 
@@ -37,8 +39,8 @@ function App() {
         <NavBar />
         {/* <Posts  userName={posts[0].userName} imageCaption={posts[0].imageCaption} imageUrl={posts[0].imageUrl} /> */}
         {
-          posts.map((post)=>{
-            return(<Posts  userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
+          posts.map(({id,post})=>{
+            return(<Posts  key={id} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
           })
           
         }
