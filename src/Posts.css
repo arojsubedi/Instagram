@@ -9,7 +9,7 @@
 }
 
 .posts__section{
-    max-width: 500px;
+    max-width: 550px;
     border: 1px solid lightgray;
     /* margin-bottom: 30px; */
     background-color: white !important;
@@ -34,7 +34,10 @@
     
 }
 
+
 .image__style{
+    height:550px;
+    width: 100%;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
 }

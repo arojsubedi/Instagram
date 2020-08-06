@@ -28,17 +28,13 @@ function App() {
   return (
     <React.Fragment>
         <NavBar />
-        <Posts  userName='Aroj' imageCaption='Hi there' imageUrl='https://images.unsplash.com/photo-1542044896530-05d85be9b11a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' />
+        <Posts  userName={posts[0].userName} imageCaption={posts[0].imageCaption} imageUrl={posts[0].imageUrl} />
         {
-          posts.map((nPosts)=>{
-            // <Posts />
-            <Posts  userName={nPosts.userName} imageCaption={nPosts.imageCaption} imageUrl={nPosts.imageUrl} />
+          posts.map((post)=>{
+            return(<Posts  userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
           })
+          
         }
-       
-        {/* <Posts />
-        <Posts />
-        <Posts /> */}
     </React.Fragment>
   );
 }

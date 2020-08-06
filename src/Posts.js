@@ -14,6 +14,7 @@ function Posts(props){
                             <img 
                                 src={props.imageUrl}
                                 className="image__style"
+                                alt={props.userName}
                             />
                         </div>
                         <div className="section__captions">
