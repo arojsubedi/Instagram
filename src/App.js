@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import NavBar from './NavBar.js';
 import Posts from './Posts.js';
 import LoginForm from './Login.js';
+import ImageUpload from './ImageUpload';
 import {db} from './Firebase.js';
 
 
@@ -28,6 +29,7 @@ function App() {
     //   imageUrl:'https://images.unsplash.com/photo-1593983649075-9fd447bb280a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
     // }
   ]);
+  const [userName,setUserName]=useState("")
 
   useEffect(()=>{
     db.collection('posts').onSnapshot(snapshot=>{
@@ -39,8 +41,12 @@ function App() {
 
   return (
     <React.Fragment>
+      
+        {userName?
+          <ImageUpload userName={userName} />:
+            <h3>Please Sign In/ Sign Up to upload an image</h3>}
         <NavBar />
-        <LoginForm />
+        <LoginForm settingUserName={setUserName}/>
         {/* <Posts  userName={posts[0].userName} imageCaption={posts[0].imageCaption} imageUrl={posts[0].imageUrl} /> */}
         {
           posts.map(({id,post})=>{

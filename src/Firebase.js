@@ -14,7 +14,7 @@ const firebaseApp=firebase.initializeApp({
     measurementId: "G-NYP82878SS"
 });
 
-firebase.firestore.setLogLevel('debug');
+// firebase.firestore.setLogLevel('debug');
 firebase.firestore().settings({ experimentalForceLongPolling: true });
 const db=firebaseApp.firestore(); //access to db
 const auth=firebase.auth(); //access to authentication
