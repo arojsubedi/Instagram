@@ -1,7 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import NavBar from './NavBar.js';
 import Posts from './Posts.js';
+import LoginForm from './Login.js';
 import {db} from './Firebase.js';
+
+
 function App() {
   const [posts, setPosts] = useState([
     // {
@@ -37,6 +40,7 @@ function App() {
   return (
     <React.Fragment>
         <NavBar />
+        <LoginForm />
         {/* <Posts  userName={posts[0].userName} imageCaption={posts[0].imageCaption} imageUrl={posts[0].imageUrl} /> */}
         {
           posts.map(({id,post})=>{
