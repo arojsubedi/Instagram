@@ -6,7 +6,7 @@
     border: 1px solid #dbdbdb; 
     border: 1px solid rgba(var(--b6a,219,219,219),1);
     border-radius: 1px;
-    margin: 0 0 10px;
+    margin: 20px 0 10px;
     padding: 10px 0;
 }
 
@@ -49,7 +49,7 @@
     border: 1px solid rgba(var(--b6a,219,219,219),1);
     border-radius: 1px;
     margin: 0 0 10px;
-    padding: 10px 0;
+    padding: 2rem;
 }
 
 .insta__post{
@@ -65,9 +65,13 @@
 }
 
 .login__button{
-    margin-bottom: 3rem;;
+    margin-top: 1.5rem;
+    margin-bottom: 5.9rem;
 }
 @media only screen and (max-width:450px) {
+    .insta__post{
+        display:none;
+    }
     .login__form{
         display:flex;
         flex-direction: column;
