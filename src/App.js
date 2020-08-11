@@ -40,21 +40,28 @@ function App() {
   },[]);
 
   return (
-    <React.Fragment>
+    
+    <div>
       
         {userName?
-          <ImageUpload userName={userName} />:
-            <h3>Please Sign In/ Sign Up to upload an image</h3>}
-        <NavBar />
-        <LoginForm settingUserName={setUserName}/>
-        {/* <Posts  userName={posts[0].userName} imageCaption={posts[0].imageCaption} imageUrl={posts[0].imageUrl} /> */}
+          <React.Fragment>
+            <ImageUpload userName={userName} />
+            <NavBar />
+            <LoginForm settingUserName={setUserName}/>
+          </React.Fragment>
+          :
+          <LoginForm settingUserName={setUserName}/>
+        
+        }
         {
-          posts.map(({id,post})=>{
-            return(<Posts  key={id} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
-          })
+          userName?
+           (  posts.map(({id,post})=>{
+                return(<Posts  key={id} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
+              })
+           ):''
           
         }
-    </React.Fragment>
+    </div>
   );
 }
 

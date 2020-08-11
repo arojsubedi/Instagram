@@ -1,5 +1,86 @@
-.login__form{
+
+.login__form{    
+    float: left;
+    align-items: center;
+    background-color: rgba(var(--d87,255,255,255),1);
+    border: 1px solid #dbdbdb; 
+    border: 1px solid rgba(var(--b6a,219,219,219),1);
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+}
+
+.login__button{
+    width: 60%;
+}
+.login_formImg{
+    object-fit: contain;
+    margin: 22px auto 12px;
+}
+
+.user__input{
     display:flex;
     flex-direction: column;
+    width: 75%;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.signInSignUp{
+    display: flex;
+    flex-direction: column;
+}
+
+.email_password{
+    width: 100%;
+    margin: 2rem;
+}
+
+.email__id{
+    margin-bottom:0.5rem;
+}
+
+.signUp{
+    text-align :center;  
+    align-items: center;
+    background-color: rgba(var(--d87,255,255,255),1);
+    border: 1px solid #dbdbdb; 
+    border: 1px solid rgba(var(--b6a,219,219,219),1);
+    border-radius: 1px;
+    margin: 0 0 10px;
+    padding: 10px 0;
+}
+
+.insta__post{
+    margin: 22px auto 12px;
+    background-repeat: no-repeat;
+    /* background-position: 0 -130px; */
+    /* height: 51px;
+    width: 175px; */
+}
+
+.image__landing{
+    float:right;
+}
+
+.login__button{
+    margin-bottom: 3rem;;
+}
+@media only screen and (max-width:450px) {
+    .login__form{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(var(--d87,255,255,255),1);
+        border: 1px solid #dbdbdb; 
+        border: 1px solid rgba(var(--b6a,219,219,219),1);
+        border-radius: 1px;
+        margin: 0 0 10px;
+        padding: 10px 0;
+    }
+    
+    .image__landing{
+        text-align: center;
+    }
 }

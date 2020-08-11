@@ -5,7 +5,7 @@ import { db,storage } from './Firebase';
 import * as firebase from 'firebase/app';
 
 function ImageUpload({userName}) {
-    console.log('userName',userName);
+    // console.log('userName',userName);
     const[imageCaption,setImageCaption]=useState('')
     const [progress,setProgess]=useState(0)
     const[imageSelected,setImageSelected]=useState('')
@@ -60,19 +60,22 @@ function ImageUpload({userName}) {
     }
     return (
         <React.Fragment>
-            <input
-                type="text"
-                name="imageCaption"
-                placeholder="Enter a caption"
-                value={imageCaption}
-                onChange={(e)=>setImageCaption(e.target.value)}
-            />
-            <progress value={progress} max="100" />
-            <input
-                type="file"
-                onChange={(e)=>onSelectingImage(e)}
-            />
-            <Button type="button" onClick={(event)=>{handleUpload(event)}}>Upload</Button>            
+            <div className="image__upload">
+                <progress value={progress} className="progress__bar" max="100" />
+                <input
+                    type="text"
+                    name="imageCaption"
+                    placeholder="Enter a caption"
+                    value={imageCaption}
+                    onChange={(e)=>setImageCaption(e.target.value)}
+                />
+                <input
+                    type="file"
+                    onChange={(e)=>onSelectingImage(e)}
+                />
+                <Button type="button" onClick={(event)=>{handleUpload(event)}}>Upload</Button>    
+            </div>
+                    
         </React.Fragment>
     )
 }
