@@ -52,6 +52,13 @@
     padding: 2rem;
 }
 
+.signUp__link{
+    font-weight: 700 !important;
+}
+.signUp__link:hover{
+    text-decoration: none;
+}
+
 .insta__post{
     margin: 22px auto 12px;
     background-repeat: no-repeat;

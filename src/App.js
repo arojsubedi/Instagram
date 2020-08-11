@@ -30,6 +30,7 @@ function App() {
     // }
   ]);
   const [userName,setUserName]=useState("")
+  // const [authSuccessfull,setAuthSuccessfull]=useState(false)
 
   useEffect(()=>{
     db.collection('posts').onSnapshot(snapshot=>{
@@ -40,14 +41,11 @@ function App() {
   },[]);
 
   return (
-    
     <div>
-      
         {userName?
           <React.Fragment>
             <ImageUpload userName={userName} />
-            <NavBar />
-            <LoginForm settingUserName={setUserName}/>
+            <NavBar userName={userName} settingUserName={setUserName}/>
           </React.Fragment>
           :
           <LoginForm settingUserName={setUserName}/>

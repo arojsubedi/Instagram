@@ -1,20 +1,27 @@
 import React from 'react';
 import './NavBar.css';
+import { auth } from './Firebase';
 
-class NavBar extends React.Component{
-    render(){
-        return(
-            <React.Fragment>
-                <div className="navbar__header">
-                    <img 
-                        src={'https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'} 
-                        alt='description'
-                    />
-                </div>
- 
-            </React.Fragment>
-        )
+export default function NavBar({userName,settingUserName}){
+    const logOutUser = ()=>{
+        auth.signOut();
+        settingUserName(null);
     }
+    return(
+        <React.Fragment>
+            <div className="navbar__header">
+                <img 
+                    src={'https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'} 
+                    alt='description'
+                />
+                <div>
+                    {userName}
+                    <a onClick={(e)=>{logOutUser()}} className="logOut">Log Out</a>
+                </div>
+                
+            </div>
+        </React.Fragment>
+    )
 }
 
-export default NavBar;
+// export default NavBar;
