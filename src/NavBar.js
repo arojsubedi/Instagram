@@ -15,7 +15,7 @@ export default function NavBar({userName,settingUserName}){
                     alt='description'
                 />
                 <div>
-                    {userName}
+                    Logged in as <span id="user__name"> {userName}</span>
                     <a onClick={(e)=>{logOutUser()}} className="logOut">Log Out</a>
                 </div>
                 

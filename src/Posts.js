@@ -8,7 +8,7 @@ function Posts(props){
                     <div className="posts__section">
                         <div className="section__avatar">
                             <Avatar alt={props.userName} src="/static/images/avatar/1.jpg" />
-                            <div className="avatar__text"><h4>{props.userName}</h4></div>
+                            <div className="avatar__text">{props.userName}</div>
                         </div>
                         <div className="section__image">
                             <img 
@@ -18,7 +18,7 @@ function Posts(props){
                             />
                         </div>
                         <div className="section__captions">
-                            <h5>{props.imageCaption}</h5>
+                        <span className="avatar__text">{props.userName} - {props.imageCaption}</span>
                         </div>
                     </div>
                 </div>
