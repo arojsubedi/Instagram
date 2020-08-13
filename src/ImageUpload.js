@@ -3,6 +3,8 @@ import './ImageUpload.css'
 import Button from '@material-ui/core/Button';
 import { db,storage } from './Firebase';
 import * as firebase from 'firebase/app';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Input } from '@material-ui/core';
 
 function ImageUpload({userName}) {
     // console.log('userName',userName);
@@ -61,17 +63,17 @@ function ImageUpload({userName}) {
     return (
         <React.Fragment>
             <div className="image__upload">
-                <progress value={progress} className="progress__bar" max="100" />
+                <Input
+                    type="file"
+                    onChange={(e)=>onSelectingImage(e)}
+                />
+                {(progress!==0)?<progress value={progress} className="progress__bar" max="100" />:''}
                 <input
                     type="text"
                     name="imageCaption"
                     placeholder="Enter a caption"
                     value={imageCaption}
                     onChange={(e)=>setImageCaption(e.target.value)}
-                />
-                <input
-                    type="file"
-                    onChange={(e)=>onSelectingImage(e)}
                 />
                 <Button type="button" onClick={(event)=>{handleUpload(event)}}>Upload</Button>    
             </div>

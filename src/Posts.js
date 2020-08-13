@@ -18,7 +18,14 @@ function Posts(props){
                             />
                         </div>
                         <div className="section__captions">
-                        <span className="avatar__text">{props.userName} - {props.imageCaption}</span>
+                            <div className="row">
+                                <div className="col-md-3 avatar__text">
+                                    {props.userName}
+                                </div>
+                                <div className="col-md-9">
+                                    {props.imageCaption}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
