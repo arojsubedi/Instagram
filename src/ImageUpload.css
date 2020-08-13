@@ -1,11 +1,24 @@
 .image__upload{
     display: flex;
     flex-direction: column;
-    width:50%;
+    width:100%;
     justify-content: space-around;
     /* align-items: center; */
 }
 
+.img__caption{
+    margin-top: 1rem;
+}
+
+.select__image{
+    margin-top:1rem;
+    margin-bottom: 1rem;
+}
+
 .progress__bar{
     width: 100%;
+}
+
+.upload__btn{
+    margin-top:1rem;
 }

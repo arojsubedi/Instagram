@@ -44,7 +44,7 @@ function App() {
     <div>
         {userName?
           <React.Fragment>
-            <ImageUpload userName={userName} />
+            {/* <ImageUpload userName={userName} /> */}
             <NavBar userName={userName} settingUserName={setUserName}/>
           </React.Fragment>
           :

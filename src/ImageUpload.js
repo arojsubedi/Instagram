@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 import './ImageUpload.css'
-import Button from '@material-ui/core/Button';
+import {Button} from 'react-bootstrap';
 import { db,storage } from './Firebase';
 import * as firebase from 'firebase/app';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Input } from '@material-ui/core';
 
-function ImageUpload({userName}) {
+function ImageUpload({userName,handleCloseModal}) {
     // console.log('userName',userName);
     const[imageCaption,setImageCaption]=useState('')
     const [progress,setProgess]=useState(0)
@@ -48,6 +48,7 @@ function ImageUpload({userName}) {
                         setProgess(0);
                         setImageCaption("")
                         setImageSelected(null)
+                        handleCloseModal()
                     })
             }
         )
@@ -65,17 +66,19 @@ function ImageUpload({userName}) {
             <div className="image__upload">
                 <Input
                     type="file"
+                    className="select__image"
                     onChange={(e)=>onSelectingImage(e)}
                 />
                 {(progress!==0)?<progress value={progress} className="progress__bar" max="100" />:''}
                 <input
+                    className="img__caption"
                     type="text"
                     name="imageCaption"
                     placeholder="Enter a caption"
                     value={imageCaption}
                     onChange={(e)=>setImageCaption(e.target.value)}
                 />
-                <Button type="button" onClick={(event)=>{handleUpload(event)}}>Upload</Button>    
+                <Button type="button" className="upload__btn" onClick={(event)=>{handleUpload(event)}}>Upload</Button>    
             </div>
                     
         </React.Fragment>

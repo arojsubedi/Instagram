@@ -1,6 +1,8 @@
 import React from 'react';
 import './Posts.css';
 import Avatar from '@material-ui/core/Avatar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, faComment, faFlag } from '@fortawesome/free-solid-svg-icons'
 
 function Posts(props){
         return(
@@ -17,15 +19,13 @@ function Posts(props){
                                 alt={props.userName}
                             />
                         </div>
+                        <div className="section_likeComment">
+                            <span className="like_comment_save"><FontAwesomeIcon icon={faHeart} /></span>
+                            <span className="like_comment_save"><FontAwesomeIcon icon={faComment} /></span>  
+                            <span className="like_comment_save"><FontAwesomeIcon icon={faFlag} /></span>    
+                        </div>
                         <div className="section__captions">
-                            <div className="row">
-                                <div className="col-md-3 avatar__text">
-                                    {props.userName}
-                                </div>
-                                <div className="col-md-9">
-                                    {props.imageCaption}
-                                </div>
-                            </div>
+                            <span className="col-md-2 comment__text">{props.userName}</span>{props.imageCaption}
                         </div>
                     </div>
                 </div>

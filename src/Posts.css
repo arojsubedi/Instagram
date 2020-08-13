@@ -3,7 +3,7 @@
     background-color:rgba(var(--b3f,250,250,250),1);
     padding-left: 8rem;
     padding-top: 2rem;
-    /* padding-bottom: 30px; */
+    /* padding-bottom: 50px; */
 }
 
 .posts__section{
@@ -22,7 +22,17 @@
 }
 
 .avatar__text{
+    overflow: hidden;
+    text-overflow: ellipsis; 
     padding-left: 10px;
+    padding-right:10px;
+    font-weight: 600;
+}
+
+.comment__text{
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    /* padding-left: 10px; */
     padding-right:10px;
     font-weight: 600;
 }
@@ -49,8 +59,21 @@
     height: 4.5rem;
     padding-top: 0.5rem;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
+.section_likeComment{
+    margin-top: 0.5rem;
+    padding-left: 20px;
+}
+
+.like_comment_save{
+    font-size: 18px;
+    /* padding-top: 15px; */
+    padding-right: 25px;
+    margin-top: 20px;
+
+}
 @media only screen and (max-width:450px) {
     .posts__body{
         margin-top: 0;
