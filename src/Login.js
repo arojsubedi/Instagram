@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import { Input } from '@material-ui/core';
 import './Login.css';
 import { auth } from './Firebase';
 import {Button,FormControl} from 'react-bootstrap';
@@ -9,6 +8,7 @@ export default function LoginForm({settingUserName}) {
     
     const [signInSignUpWindow,checkSignInSignUpWindow]=useState(true);
     const [signInWindow,checkSignInWindow] = useState(false);
+    const [displayName,setDisplayName]=useState('');
     const[userName,setUserName]=useState("");
     const[emailID,setEmailID]=useState("");
     const[userPassword,setUserPassword]=useState("");
@@ -42,13 +42,15 @@ export default function LoginForm({settingUserName}) {
         auth.createUserWithEmailAndPassword(emailID,userPassword) //creating a user in firebase user portfolio
         .then((authUser)=>{
             return authUser.user.updateProfile({
-                displayName:userName   //updating user profile with the username
+                displayName:displayName   //updating user profile with the username
             })
         })
         .catch((error)=>alert(error))
         setUserName('');
+        setEmailID('');
         setUserPassword('');
-        goToSignInWindow(e)  //closing the signup page and opening up the login window
+        // settingUserName(displayName)
+        goToSignInWindow(e);  //closing the signup page and opening up the login window
     }
 
     //fired when a user signs in after creating an account
@@ -56,6 +58,7 @@ export default function LoginForm({settingUserName}) {
         e.preventDefault();
         auth.signInWithEmailAndPassword(emailID,userPassword)
         .catch((error)=>alert(error))
+        settingUserName(displayName)
         checkSignInSignUpWindow(false)
     }
 
@@ -125,6 +128,13 @@ export default function LoginForm({settingUserName}) {
                                         />
                                     
                                     <div className="email_password">
+                                        <FormControl
+                                            placeholder="User Name"
+                                            name="displayName"
+                                            value={displayName}
+                                            className="email__id"
+                                            onChange={(e)=>setDisplayName(e.target.value)}
+                                        />
                                         <FormControl
                                             placeholder="Email ID"
                                             name="emailID"

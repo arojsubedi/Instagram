@@ -1,0 +1,9 @@
+-> firebase login
+-> firebase init
+-> npm run build
+->firebase deploy
+
+
+
+Project Console: https://console.firebase.google.com/project/instagram-clone-fa27a/overview
+Hosting URL: https://instagram-clone-fa27a.web.app

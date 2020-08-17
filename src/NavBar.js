@@ -15,17 +15,8 @@ import {Modal} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ImageUpload from './ImageUpload.js';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-    },
-    paper: {
-      marginRight: theme.spacing(2),
-    },
-  }));
-
 export default function NavBar({userName,settingUserName}){
-    const classes = useStyles();
+  
     const [open, setOpen] = React.useState(false);
     const [showModal, setShowModal] = useState(false);
 
