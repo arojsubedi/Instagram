@@ -117,7 +117,7 @@ export default function LoginForm({settingUserName}) {
             (
                 <div className="container">
                     <div className="row">
-                        <div className="col-3 col-md-3"></div>
+                        <div className="col-2 col-md-3"></div>
                         <div className="col-8 col-md-5 signInSignUp" >
                             <div className="login__form">
                                 <div className="user__input">

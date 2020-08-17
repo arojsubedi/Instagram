@@ -11,7 +11,23 @@ function ImageUpload({userName,handleCloseModal}) {
     const[imageCaption,setImageCaption]=useState('')
     const [progress,setProgess]=useState(0)
     const[imageSelected,setImageSelected]=useState('')
+    const [url,seturl] = useState('')
 
+    const addDocument=(url)=>{
+        console.log('state url',url)
+        db.collection("posts").add({
+            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+            imageCaption:imageCaption,
+            imageUrl:url,
+            userName:userName
+        })
+        .then(function(docRef) {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function(error) {
+            console.error("Error adding document: ", error);
+        });
+    }
     const handleUpload=(e)=>{
         e.preventDefault();
 
@@ -37,14 +53,13 @@ function ImageUpload({userName,handleCloseModal}) {
                     .ref("images")
                     .child(imageSelected.name)
                     .getDownloadURL()
-                    .then(url=>{
+                    .then(urlr=>{
                         //posting image inside the db
-                        db.collection("posts").add({
-                            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
-                            imageCaption:imageCaption,
-                            imageUrl:url,
-                            userName:userName
-                        });
+                        console.log('db',db.collection("posts"));
+                        console.log('url',urlr);
+                        addDocument(urlr)
+                        // Add a new document with a generated id.
+                       
                         setProgess(0);
                         setImageCaption("")
                         setImageSelected(null)
@@ -52,6 +67,8 @@ function ImageUpload({userName,handleCloseModal}) {
                     })
             }
         )
+
+        
     }
     
     const onSelectingImage=(e)=>{

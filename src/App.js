@@ -55,30 +55,34 @@ function App() {
         }
         <div className="section_leftRight">
           <div className="posts__sectionLeft">
+            
             {
               userName?
               (  posts.map(({id,post})=>{
                     return(<Posts  key={id} postId={id} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
                   })
-              ):<Posts  key={'a'} userName={'arojsubedi'} imageCaption={'what a wonderful world'} imageUrl={'https://images.unsplash.com/photo-1597582063548-572c669c186b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'} />
+              ):''
               
             }
           </div>
-          
-          <div className="embed__SectionRight">
-            <InstagramEmbed
-              url='https://www.instagram.com/p/CA4WJuyMwY_/'
-              maxWidth={320}  
-              hideCaption={false}
-              containerTagName='div'
-              protocol=''
-              injectScript
-              onLoading={() => {}}
-              onSuccess={() => {}}
-              onAfterRender={() => {}}
-              onFailure={() => {}}
-            />
-          </div>
+          {
+              userName?
+                <div className="embed__SectionRight">
+                  <InstagramEmbed
+                    url='https://www.instagram.com/p/CA4WJuyMwY_/'
+                    maxWidth={320}  
+                    hideCaption={false}
+                    containerTagName='div'
+                    protocol=''
+                    injectScript
+                    onLoading={() => {}}
+                    onSuccess={() => {}}
+                    onAfterRender={() => {}}
+                    onFailure={() => {}}
+                  />
+                </div>
+                :''
+          }
         </div>
         
       <div className="optional__section"></div>

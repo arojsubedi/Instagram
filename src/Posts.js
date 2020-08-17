@@ -81,7 +81,7 @@ function Posts(props){
                                 className="add__acomment"
                                 onChange={(e)=>setComments(e.target.value)}
                             />
-                            {console.log('comments',comments)}
+                            
                             <Button className={(comments==='')?"post__buttonEnabled":"post__buttonDisabled"} disabled={comments===''} type="submit" onClick={(e)=>{postComments(e)}}>Post</Button>
                         </div>
                     </div>

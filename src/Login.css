@@ -86,6 +86,7 @@
         border: 1px solid rgba(var(--b6a,219,219,219),1);
         border-radius: 1px;
         margin: 0 0 10px;
+        margin-top: 3rem;
         padding: 10px 0;
     }
     
