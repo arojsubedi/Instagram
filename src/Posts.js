@@ -20,7 +20,7 @@ function Posts(props){
                             />
                         </div>
                         <div className="section_likeComment">
-                            <span className="like_comment_save"><FontAwesomeIcon icon={faHeart} /></span>
+                            <span className="like_comment_save"><FontAwesomeIcon icon={faHeart} swapOpacity/></span>
                             <span className="like_comment_save"><FontAwesomeIcon icon={faComment} /></span>  
                             <span className="like_comment_save"><FontAwesomeIcon icon={faFlag} /></span>    
                         </div>

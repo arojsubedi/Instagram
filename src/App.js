@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react';
 import NavBar from './NavBar.js';
 import Posts from './Posts.js';
 import LoginForm from './Login.js';
-import ImageUpload from './ImageUpload';
+import './App.css'
+import Footer from './Footer';
 import {db} from './Firebase.js';
 
 
@@ -50,15 +51,17 @@ function App() {
           :
           <LoginForm settingUserName={setUserName}/>
         
-        }
-        {
-          userName?
-           (  posts.map(({id,post})=>{
-                return(<Posts  key={id} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
-              })
-           ):''
-          
-        }
+          }
+          {
+            userName?
+            (  posts.map(({id,post})=>{
+                  return(<Posts  key={id} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
+                })
+            ):''
+            
+          }
+          {(posts.length !==0)?<div className="optional__section"></div>:''}
+          <Footer />
     </div>
   );
 }
