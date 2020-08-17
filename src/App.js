@@ -5,6 +5,7 @@ import LoginForm from './Login.js';
 import './App.css'
 import Footer from './Footer';
 import {db} from './Firebase.js';
+import InstagramEmbed from 'react-instagram-embed';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
   // const [authSuccessfull,setAuthSuccessfull]=useState(false)
 
   useEffect(()=>{
-    db.collection('posts').onSnapshot(snapshot=>{
+    db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot=>{
       setPosts(snapshot.docs.map(doc=>
         ({id:doc.id,post:doc.data()})
       ));
@@ -51,16 +52,37 @@ function App() {
           :
           <LoginForm settingUserName={setUserName}/>
         
-          }
-          {
-            userName?
-            (  posts.map(({id,post})=>{
-                  return(<Posts  key={id} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
-                })
-            ):''
-            
-          }
-          {(posts.length !==0)?<div className="optional__section"></div>:''}
+        }
+        <div className="section_leftRight">
+          <div className="posts__sectionLeft">
+            {
+              userName?
+              (  posts.map(({id,post})=>{
+                    return(<Posts  key={id} postId={id} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
+                  })
+              ):<Posts  key={'a'} userName={'arojsubedi'} imageCaption={'what a wonderful world'} imageUrl={'https://images.unsplash.com/photo-1597582063548-572c669c186b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'} />
+              
+            }
+          </div>
+          
+          <div className="embed__SectionRight">
+            <InstagramEmbed
+              url='https://www.instagram.com/p/CA4WJuyMwY_/'
+              maxWidth={320}  
+              hideCaption={false}
+              containerTagName='div'
+              protocol=''
+              injectScript
+              onLoading={() => {}}
+              onSuccess={() => {}}
+              onAfterRender={() => {}}
+              onFailure={() => {}}
+            />
+          </div>
+        </div>
+        
+      <div className="optional__section"></div>
+          {/* {(posts.length !==0)?<div className="optional__section"></div>:''} */}
           <Footer />
     </div>
   );
