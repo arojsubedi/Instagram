@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div>
-        {userName?
+        {userName ?
           <React.Fragment>
             {/* <ImageUpload userName={userName} /> */}
             <NavBar userName={userName} settingUserName={setUserName}/>
@@ -59,7 +59,7 @@ function App() {
             {
               userName?
               (  posts.map(({id,post})=>{
-                    return(<Posts  key={id} postId={id} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
+                    return(<Posts  key={id} postId={id} commentUserName={userName} userName={post.userName} imageCaption={post.imageCaption} imageUrl={post.imageUrl} />)
                   })
               ):''
               
@@ -84,7 +84,24 @@ function App() {
                 :''
           }
         </div>
-        
+        {
+              (userName && posts.length === 0)?
+                <div className="embed__SectionRightMobile">
+                  <InstagramEmbed
+                    url='https://www.instagram.com/p/CA4WJuyMwY_/'
+                    maxWidth={320}  
+                    hideCaption={false}
+                    containerTagName='div'
+                    protocol=''
+                    injectScript
+                    onLoading={() => {}}
+                    onSuccess={() => {}}
+                    onAfterRender={() => {}}
+                    onFailure={() => {}}
+                  />
+                </div>
+                :''
+          }        
       <div className="optional__section"></div>
           {/* {(posts.length !==0)?<div className="optional__section"></div>:''} */}
           <Footer />

@@ -18,7 +18,7 @@ function Posts(props){
                     .collection("posts")
                     .doc(props.postId)
                     .collection("comments")
-                    .orderBy("timestamp","desc")
+                    .orderBy("timestamp","asc")
                     .onSnapshot((snapshot)=>{
                         setPComments(snapshot.docs.map((doc)=>doc.data()));
                     });
@@ -29,10 +29,11 @@ function Posts(props){
         },[props.postId]);
 
         const postComments = (e) =>{
+            console.log('comments user name',props.commentUserName)
             e.preventDefault();
             db.collection("posts").doc(props.postId).collection("comments").add({
                 text:comments,
-                username:props.userName,
+                username:props.commentUserName,
                 timestamp:firebase.firestore.FieldValue.serverTimestamp()
             });
             setComments("");
@@ -63,6 +64,8 @@ function Posts(props){
                             {
                                 (pcomments.length !== 0)?
                                     pcomments.map((comment)=>{
+                                        // console.log('id',id)
+                                        // console.log('comments',comment)
                                         return(
                                         <React.Fragment>
                                             <span className="col-md-2 comment__text posted__comments">{comment.username}</span><span className="posted__comments">{comment.text}</span><br/>

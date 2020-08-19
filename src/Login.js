@@ -70,7 +70,7 @@ export default function LoginForm({settingUserName}) {
             (!signInWindow)?(
                 <div className="container">
                     <div className="row">
-                        <div className="col-2 col-md-5 " >
+                        <div className="col-1 col-md-5 " >
                             <div className="insta__post">
                                 <img src="https://images.pexels.com/photos/805922/pexels-photo-805922.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                                     alt="iphone"
@@ -78,7 +78,7 @@ export default function LoginForm({settingUserName}) {
                                 /> 
                             </div>
                         </div>
-                        <div className="col-8 col-md-5 signInSignUp" >
+                        <div className="col-10 col-md-5 signInSignUp" >
                             <div className="login__form">
                                 <div className="user__input">
                                         <img
@@ -117,8 +117,8 @@ export default function LoginForm({settingUserName}) {
             (
                 <div className="container">
                     <div className="row">
-                        <div className="col-2 col-md-3"></div>
-                        <div className="col-8 col-md-5 signInSignUp" >
+                        <div className="col-1 col-md-3"></div>
+                        <div className="col-10 col-md-5 signInSignUp" >
                             <div className="login__form">
                                 <div className="user__input">
                                         <img

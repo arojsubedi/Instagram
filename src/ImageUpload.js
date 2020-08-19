@@ -11,10 +11,10 @@ function ImageUpload({userName,handleCloseModal}) {
     const[imageCaption,setImageCaption]=useState('')
     const [progress,setProgess]=useState(0)
     const[imageSelected,setImageSelected]=useState('')
-    const [url,seturl] = useState('')
+    // const [url,seturl] = useState('')
 
     const addDocument=(url)=>{
-        console.log('state url',url)
+        // console.log('state url',url)
         db.collection("posts").add({
             timestamp:firebase.firestore.FieldValue.serverTimestamp(),
             imageCaption:imageCaption,
@@ -31,43 +31,66 @@ function ImageUpload({userName,handleCloseModal}) {
     const handleUpload=(e)=>{
         e.preventDefault();
 
-        const uploadTask=storage.ref(`images/${imageSelected.name}`).put(imageSelected)
+        //const uploadTask=storage.ref(`images/${imageSelected.name}`).put(imageSelected)
 
-        uploadTask.on(
-            "state_changed",
-            (snapshot)=>{
-                //progress function
-                const progress =Math.round(
-                    (snapshot.bytesTransferred/snapshot.totalBytes)*100
-                );
-                setProgess(progress);
-            },
-            (error)=>{
-                //Error function
-                console.log(error)
-                alert(error.message);
-            },
-            ()=>{
-                //complete function
-                storage
-                    .ref("images")
-                    .child(imageSelected.name)
-                    .getDownloadURL()
-                    .then(urlr=>{
-                        //posting image inside the db
-                        console.log('db',db.collection("posts"));
-                        console.log('url',urlr);
-                        addDocument(urlr)
-                        // Add a new document with a generated id.
+        // uploadTask.on(
+        //     "state_changed",
+        //     (snapshot)=>{
+        //         //progress function
+        //         const progress =Math.round(
+        //             (snapshot.bytesTransferred/snapshot.totalBytes)*100
+        //         );
+        //         setProgess(progress);
+        //     },
+        //     (error)=>{
+        //         //Error function
+        //         console.log(error)
+        //         alert(error.message);
+        //     },
+        //     ()=>{
+        //         //complete function
+        //         storage
+        //             .ref("images")
+        //             .child(imageSelected.name)
+        //             .getDownloadURL()
+        //             .then(urlr=>{
+        //                 //posting image inside the db
+        //                 console.log('db',db.collection("posts"));
+        //                 console.log('url',urlr);
+        //                 addDocument(urlr)
+        //                 // Add a new document with a generated id.
                        
-                        setProgess(0);
-                        setImageCaption("")
-                        setImageSelected(null)
-                        handleCloseModal()
-                    })
-            }
-        )
+        //                 setProgess(0);
+        //                 setImageCaption("")
+        //                 setImageSelected(null)
+        //                 handleCloseModal()
+        //             })
+        //     }
+        // )
 
+        var storageRef = storage.ref();
+        // Upload file and metadata to the object 'images/mountains.jpg'
+        var uploadTask = storageRef.child('images/' + imageSelected.name).put(imageSelected);
+
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        function(snapshot) {
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setProgess(progress);
+            
+        }, function(error) {
+            alert("error while uploading the image")
+        }, function() {
+        // Upload completed successfully, now we can get the download URL
+        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                addDocument(downloadURL)
+                setProgess(0);
+                setImageCaption("")
+                setImageSelected(null)
+                handleCloseModal()
+        });
+        });
         
     }
     
