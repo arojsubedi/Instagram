@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {Modal} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ImageUpload from './ImageUpload.js';
+import instagramlogo1 from './static/images/instagramheaderpic.png'
 
 export default function NavBar({userName,settingUserName}){
   
@@ -67,7 +68,7 @@ export default function NavBar({userName,settingUserName}){
         <React.Fragment>
             <div className="navbar__header">
                 <img 
-                    src={'https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'} 
+                    src={instagramlogo1} 
                     alt='description'
                 />
                 {/* <div>

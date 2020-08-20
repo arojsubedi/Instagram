@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import './Posts.css';
-import Avatar from '@material-ui/core/Avatar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faComment, faFlag } from '@fortawesome/free-solid-svg-icons';
+import {Avatar,IconButton} from '@material-ui/core';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import SendIcon from '@material-ui/icons/Send';
+
 import {FormControl} from 'react-bootstrap';
 import Button from '@material-ui/core/Button';
 import { db } from './Firebase';
@@ -53,9 +55,24 @@ function Posts(props){
                             />
                         </div>
                         <div className="section_likeComment">
-                            <span className="like_comment_save"><FontAwesomeIcon icon={faHeart} swapOpacity/></span>
+                            {/* <span className="like_comment_save"><FontAwesomeIcon icon={faHeart} swapOpacity/></span>
                             <span className="like_comment_save"><FontAwesomeIcon icon={faComment} /></span>  
-                            <span className="like_comment_save"><FontAwesomeIcon icon={faFlag} /></span>    
+                            <span className="like_comment_save"><FontAwesomeIcon icon={faFlag} /></span>     */}
+                            <span className="like_comment_save">
+                            <IconButton>
+                                <FavoriteBorderIcon/>
+                            </IconButton>
+                            </span>
+                            <span className="like_comment_save">
+                            <IconButton>
+                                <ChatBubbleOutlineIcon/>    
+                            </IconButton>
+                            </span>  
+                            <span className="like_comment_save send__icon">
+                            <IconButton>
+                                <SendIcon />    
+                            </IconButton>
+                            </span>  
                         </div>
                         <div className="section__captions">
                             <span className="col-md-2 comment__text">{props.userName}</span>{props.imageCaption}

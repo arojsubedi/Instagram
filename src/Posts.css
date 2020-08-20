@@ -75,6 +75,14 @@
     margin-top: 20px;
 
 }
+
+.MuiSvgIcon-root{
+    font-size: 2.2rem !important;
+}
+
+.send__icon>.MuiIconButton-root{
+    transform: rotate(320deg);
+}
 .section__Comments{
     display: flex;
 }
@@ -108,6 +116,11 @@ form-control:disabled, .form-control[readonly] {
     text-transform: none !important;
     color:#3492eb;
 }
+
+input:focus, textarea:focus, select:focus, button:focus{
+    outline: none;
+}
+
 .post__buttonDisabled{
     flex:0;
     opacity: 0.5 !important;
@@ -148,3 +161,23 @@ form-control:disabled, .form-control[readonly] {
         border-bottom: 1px solid lightgray;
     }
 }
+
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
